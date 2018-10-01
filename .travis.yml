@@ -5,7 +5,9 @@ install: make get-deps
 services:
 - docker
 
-script:
+before_install:
 - make build
-- docker login -uDOCKER_USERNAME -P $DOCKER_PASSWORD
+
+script:
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - make push
