@@ -1,0 +1,17 @@
+version: '2'
+services:
+  web:
+    image: alpine:3.8
+    volumes_from:
+    - wise2c-store
+    tty: true
+  wise2c-store:
+    image: wisecloud/wise2c-store:latest
+    volumes:
+    - wise2c-store:/store
+volumes:
+  wise2c-store:
+    external: false    
+
+
+  
