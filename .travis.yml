@@ -1,6 +1,6 @@
 sudo: required
 
-install: make get-deps
+install: make
 
 services:
 - docker
