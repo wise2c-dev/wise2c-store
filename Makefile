@@ -4,7 +4,7 @@ DEV_VERSION=cmft-dns
 
 path=./store
 
-.PHONY:download build push
+.PHONY:download build push test test_shell
 download:
 	mkdir -p ${path}
 	echo "=== download k8s.tar.bz2 ==="
@@ -35,3 +35,10 @@ push:
 test:
 	-docker-compose down
 	docker-compose up -d
+
+test_shell:
+	docker run -d --name wise2c-store $(REPO):$(VERSION)
+	rm -rf ${PWD}/tmp
+	mkdir -p ${PWD}/tmp
+	docker cp wise2c-store:/store/k8s.tar.bz2  ${PWD}/tmp
+	docker rm -f wise2c-store
