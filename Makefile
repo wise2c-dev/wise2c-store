@@ -1,6 +1,6 @@
 REPO=wisecloud/wise2c-store
 VERSION=latest
-DEV_VERSION=cmft-dns
+DEV_VERSION=v1.11.3
 
 path=./store
 
@@ -29,7 +29,6 @@ build:
 push:
 	#docker login -uwisecloud -p<<password>> 
 	docker tag $(REPO):$(VERSION) $(REPO):$(DEV_VERSION)
-	docker push $(REPO):$(VERSION)
 	docker push $(REPO):$(DEV_VERSION)
 
 test:
