@@ -1,6 +1,6 @@
 REPO=wisecloud/wise2c-store
 VERSION=latest
-DEV_VERSION=v1.11.3
+DEV_VERSION=v1.11.x
 
 path=./store
 
