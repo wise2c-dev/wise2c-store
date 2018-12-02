@@ -1,6 +1,5 @@
 REPO=wisecloud/wise2c-store
-VERSION=latest
-DEV_VERSION=v1.11.x
+VERSION=v1.11.x
 
 path=./store
 
@@ -24,12 +23,12 @@ download:
     -o ${path}/harbor-offline-installer-v1.5.1.tgz
 
 build:
-	docker build -t $(REPO):$(VERSION) .
+	docker build -t $(REPO):latest .
 
 push:
 	#docker login -uwisecloud -p<<password>> 
-	docker tag $(REPO):$(VERSION) $(REPO):$(DEV_VERSION)
-	docker push $(REPO):$(DEV_VERSION)
+	docker tag $(REPO):latest $(REPO):$(VERSION)
+	docker push $(REPO):$(VERSION)
 
 test:
 	-docker-compose down
